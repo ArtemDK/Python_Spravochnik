@@ -31,3 +31,6 @@ def add_contact(contact:dict):
 def change_contact(contact: dict, index: int):
     phone_book.pop(index-1)
     phone_book.insert(index-1, contact)
+
+def delete_contact(index: int):
+    phone_book.remove(index - 1)
