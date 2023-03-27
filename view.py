@@ -43,16 +43,8 @@ def change_contact(book: list[dict], index: int):
             'comment': contact.get('comment') if contact.get('comment') else book[index - 1].get('comment')}
 
 
-def search_contact(book: list[dict], error_message: str):
-    name_search = input('Введите Имя для поиска:').title()
-    for i, contact in book:
-        if name_search == i:
-             print(f'{i}. {contact.get("name"):<20} '
-                  f'{contact.get("phone"):<20} '
-                  f'{contact.get("comment"):<20} ')
-        else:
-            print(error_message)
-        break
+def input_search(message):
+    return input(message)
 
 def delete_contact(book: list[dict], error_message: str):
     name_search = input('Введите Имя для поиска:').title()

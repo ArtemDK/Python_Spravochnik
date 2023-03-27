@@ -12,6 +12,7 @@ def open_file():
                        'comment': fields[2]}
             phone_book.append(contact)
 
+
 def save_file():
     data = []
     for contact in phone_book:
@@ -21,16 +22,27 @@ def save_file():
         file.write(data)
 
 
-
 def get_phone_book():
     return phone_book
 
-def add_contact(contact:dict):
+
+def add_contact(contact: dict):
     phone_book.append(contact)
 
+
 def change_contact(contact: dict, index: int):
-    phone_book.pop(index-1)
-    phone_book.insert(index-1, contact)
+    phone_book.pop(index - 1)
+    phone_book.insert(index - 1, contact)
+
 
 def delete_contact(index: int):
     phone_book.remove(index - 1)
+
+
+def find_contact(search):
+    result = []
+    for contact in phone_book:
+        for field in contact.values():
+            if search.lower() in field.lower():
+                result.append(contact)
+    return result

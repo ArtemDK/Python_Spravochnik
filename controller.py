@@ -21,11 +21,13 @@ def start():
                     contact = view.change_contact(pb, index)
                     model.change_contact(contact, index)
             case 6:
-                view.search_contact(pb, 'Такого контакта нет')
-            case 7:
-                if view.show_contacts(pb, 'Телефонная книга пуста или не открыта'):
-                    index = view.input_index('Введите номер удаляемого контакта')
-                    # contact = view.change_contact(pb, index)
-                    model.delete_contact(index)
+                search = view.input_search('Введите элемент для поиска: ')
+                result = model.find_contact(search)
+                view.show_contacts(result, 'Контакт не найден')
+            # case 7:
+            #     if view.show_contacts(pb, 'Телефонная книга пуста или не открыта'):
+            #         index = view.input_index('Введите номер удаляемого контакта')
+            #         # contact = view.change_contact(pb, index)
+            #         model.delete_contact(index)
             case 8:
                 return
